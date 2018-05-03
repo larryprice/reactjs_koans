@@ -1,32 +1,19 @@
-import PartiesList from '../src/02-PartiesList.js'
+import React from 'react'
+import {shallow, configure, render} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import PartiesList from '../exercises/02-PartiesList'
 
-describe('02 - Parties List', () => {
-  let component
+configure({adapter: new Adapter()})
 
-  beforeEach(() => {
-    let elem = document.createElement('div')
-    elem = document.body.appendChild(elem)
-    return component = React.render(React.createElement(PartiesList), elem)
-  })
-
-  afterEach(() => {
-    React.unmountComponentAtNode(React.findDOMNode(component))
-  })
-
+describe('02 - PartiesList', () => {
   describe('should complete all tasks', () => {
     it('Task #1: Party hard - have more than 1 party on party list', () => {
-      const lists = React.addons.TestUtils.scryRenderedDOMComponentsWithTag(component, 'ul')
-      assert.equal(lists.length, 1, 'You must render an `ul` HTML list')
-
-      const list = lists[0]
-      const parties = React.addons.TestUtils.scryRenderedDOMComponentsWithTag(list, 'li')
-
-      assert.equal(parties.length > 1, true, 'You have only one party on the list. Add one more party to the list.')
+      expect(shallow(<PartiesList />).find('ul').length).toBe(1)
+      expect(shallow(<PartiesList />).find('ul li').length).toBeGreaterThan(1)
     })
 
     it('Task #2: List has proper class attribute', () => {
-      const list = React.addons.TestUtils.findRenderedDOMComponentWithTag(component, 'ul')
-      assert.equal(list.props.className, 'parties-list', '`ul` element rendered by React should have `className` attribute `parties-list`')
+      expect(shallow(<PartiesList />).find('ul.parties-list').length).toBe(1)
     })
   })
 })

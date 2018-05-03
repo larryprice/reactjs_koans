@@ -7,8 +7,8 @@ configure({adapter: new Adapter()})
 
 describe('01 - HelloWorld', () => {
   it('should complete all tasks', () => {
-    expect(shallow(<HelloWorld />).find('div').length).toEqual(0)
-    expect(shallow(<HelloWorld />).find('span').length).toEqual(1)
+    expect(shallow(<HelloWorld />).find('div').length).toBe(0)
+    expect(shallow(<HelloWorld />).find('span').length).toBe(1)
     expect(render(<HelloWorld />).text()).toEqual('Hello World')
   })
 })
