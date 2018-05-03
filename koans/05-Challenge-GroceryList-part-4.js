@@ -81,7 +81,7 @@ class GroceryList extends React.Component {
     const groceriesComponents = []
     for (let index = 0; index < this.state.groceries.length; ++index) {
       groceriesComponents.push(
-        <GroceryListItem
+        <GroceryListItem key={index}
           grocery={this.state.groceries[index]}
           onComplete={this.toggleGroceryCompleteness.bind(this, index)}/>
       )
@@ -114,7 +114,7 @@ const GroceryListItem = (props) => {
 }
 GroceryListItem.propTypes = {
   grocery: PropTypes.object.isRequired,
-  onComplete: PropTypes.function.isRequired
+  onComplete: PropTypes.func.isRequired
 }
 
 export default GroceryList
