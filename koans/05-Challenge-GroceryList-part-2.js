@@ -1,4 +1,4 @@
-var React = require("react");
+import React from 'react'
 
 // We continue our journey with reactive grocery list. We implemented the previous
 // task ourselves. You can see our example implementation.

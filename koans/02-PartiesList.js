@@ -1,4 +1,4 @@
-var React = require("react");
+import React from 'react'
 
 // We will create dynamic list of parties nearby. Let's see how to render
 // a list of items.

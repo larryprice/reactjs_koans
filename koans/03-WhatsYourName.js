@@ -1,4 +1,4 @@
-var React = require("react");
+import React from 'react'
 
 // Let's get to the most important feature of React.js - reactive state.
 //

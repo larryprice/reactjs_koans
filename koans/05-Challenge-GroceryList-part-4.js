@@ -1,4 +1,4 @@
-var React = require("react");
+import React from 'react'
 
 // Task: Ok, now the last exercise. You have to implement toggling
 //       completeness of the each grocery list's item. Make each item reactive.

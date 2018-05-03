@@ -1,4 +1,4 @@
-var React = require("react");
+import React from 'react'
 
 // This is really simple React Component.
 // It has its own name (HelloWorld) it will be used for things like error display.

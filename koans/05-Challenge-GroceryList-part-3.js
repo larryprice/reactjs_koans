@@ -1,4 +1,4 @@
-var React = require("react");
+import React from 'react'
 
 // Task: User needs to be able to clear whole grocery list in one click.
 //       Render a proper button under your list and implement the `clearList` method.
