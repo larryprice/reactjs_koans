@@ -1,25 +1,14 @@
-import HelloWorld from '../src/01-HelloWorld.js'
+import React from 'react'
+import {shallow, configure, render} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import HelloWorld from '../exercises/01-HelloWorld'
+
+configure({adapter: new Adapter()})
 
 describe('01 - HelloWorld', () => {
-  let component
-
-  beforeEach(() => {
-    let elem = document.createElement('div')
-    elem = document.body.appendChild(elem)
-    return component = React.render(React.createElement(HelloWorld), elem)
-  })
-
-  afterEach(() => {
-    React.unmountComponentAtNode(React.findDOMNode(component))
-  })
-
   it('should complete all tasks', () => {
-    const divTags = React.addons.TestUtils.scryRenderedDOMComponentsWithTag(component, 'div')
-    const spanTags = React.addons.TestUtils.scryRenderedDOMComponentsWithTag(component, 'span')
-
-    assert.equal(divTags.length == 0, true, "Your React component shouldn't render any `div` HTML elements")
-    assert.equal(spanTags.length == 1, true, 'You need to render exactly one `span` HTML element')
-
-    assert.equal(spanTags[0].props.children, 'Hello World', 'You have rendered wrong message in your `span` element')
+    expect(shallow(<HelloWorld />).find('div').length).toEqual(0)
+    expect(shallow(<HelloWorld />).find('span').length).toEqual(1)
+    expect(render(<HelloWorld />).text()).toEqual('Hello World')
   })
 })
