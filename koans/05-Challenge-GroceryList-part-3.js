@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Task: User needs to be able to clear whole grocery list in one click.
 //       Render a proper button under your list and implement the `clearList` method.
@@ -15,29 +16,29 @@ import React from 'react'
 
 class GroceryList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       groceries: [
-        { name: "Apples" }
+        {name: 'Apples'}
       ],
-      newGroceryName: ""
-    };
+      newGroceryName: ''
+    }
 
-    this.addGroceryItem = this.addGroceryItem.bind(this);
-    this.clearList = this.clearList.bind(this);
-    this.inputChanged = this.inputChanged.bind(this);
+    this.addGroceryItem = this.addGroceryItem.bind(this)
+    this.clearList = this.clearList.bind(this)
+    this.inputChanged = this.inputChanged.bind(this)
   }
 
   inputChanged(event) {
-    this.setState({ newGroceryName: event.target.value });
+    this.setState({newGroceryName: event.target.value})
   }
 
   addGroceryItem() {
-    if(this.state.newGroceryName) {
-      let newGroceryItem = { name: this.state.newGroceryName };
-      this.setState({
-        groceries: this.state.groceries.concat([newGroceryItem])
-      });
+    if (this.state.newGroceryName) {
+      const newGroceryItem = {name: this.state.newGroceryName}
+      this.setState((prevState) => {
+        return {groceries: prevState.groceries.concat([newGroceryItem])}
+      })
     }
   }
 
@@ -48,22 +49,18 @@ class GroceryList extends React.Component {
   }
 
   render() {
-    let groceriesComponents = [],
-        newProductInput,
-        newProductAddButton,
-        clearListButton;
+    const groceriesComponents = []
 
-    for(var index = 0; index < this.state.groceries.length; index++) {
+    for (let index = 0; index < this.state.groceries.length; index++) {
       groceriesComponents.push(
-          <GroceryListItem
-            grocery={this.state.groceries[index]}
-          />
-      );
+        <GroceryListItem
+          grocery={this.state.groceries[index]}/>
+      )
     }
 
-    newProductInput = <input className='new-item' type="text" onChange={this.inputChanged}/>;
-    newProductAddButton = <button className='add-product' onClick={this.addGroceryItem}>Add new Product</button>;
-    clearListButton = <button onClick={this.clearList} className='clear-list'>Clear the List</button>;
+    const newProductInput = <input className='new-item' type='text' onChange={this.inputChanged}/>
+    const newProductAddButton = <button className='add-product' onClick={this.addGroceryItem}>Add new Product</button>
+    const clearListButton = <button onClick={this.clearList} className='clear-list'>Clear the List</button>
 
     return (
       <div>
@@ -73,18 +70,15 @@ class GroceryList extends React.Component {
         {newProductInput}
         {newProductAddButton}
       </div>
-    );
+    )
   }
 }
 
-class GroceryListItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (<li>{this.props.grocery.name}</li>);
-  }
+const GroceryListItem = (props) => {
+  return <li>{props.grocery.name}</li>
+}
+GroceryListItem.propTypes = {
+  grocery: PropTypes.object.isRequired
 }
 
-export default GroceryList;
+export default GroceryList

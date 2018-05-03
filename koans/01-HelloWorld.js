@@ -23,8 +23,8 @@ class HelloWorld extends React.Component {
 
   render() {
     return (
-        <div>FILL ME IN!</div>
-    );
+      <div>FILL ME IN!</div>
+    )
   }
 }
 
@@ -33,4 +33,4 @@ class HelloWorld extends React.Component {
 // components rendered on a single page. See the description here:
 // https://facebook.github.io/react/blog/2014/01/02/react-chrome-developer-tools.html
 
-export default HelloWorld;
+export default HelloWorld

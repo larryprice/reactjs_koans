@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // We continue our journey with reactive grocery list. We implemented the previous
 // task ourselves. You can see our example implementation.
@@ -18,24 +19,23 @@ import React from 'react'
 //
 //       Do you remember how we used `onChange` event in the third exercise?
 
-
 class GroceryList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       groceries: [
-        { name: "Apples" }
+        {name: 'Apples'}
       ],
-      newGroceryName: ""
-    };
+      newGroceryName: ''
+    }
 
-    this.addGroceryItem = this.addGroceryItem.bind(this);
-    this.inputChanged = this.inputChanged.bind(this);
+    this.addGroceryItem = this.addGroceryItem.bind(this)
+    this.inputChanged = this.inputChanged.bind(this)
   }
 
   // Warning: You shouldn't change this method
   inputChanged(event) {
-    this.setState({newGroceryName: event.target.value});
+    this.setState({newGroceryName: event.target.value})
   }
 
   // Fill the definition of the following method to allow adding new items to the list
@@ -47,22 +47,18 @@ class GroceryList extends React.Component {
   }
 
   render() {
-    let groceriesComponents = [],
-        newProductInput,
-        newProductAddButton;
-
-    for(var index = 0; index < this.state.groceries.length; index++) {
+    const groceriesComponents = []
+    for (let index = 0; index < this.state.groceries.length; index++) {
       groceriesComponents.push(
-          <GroceryListItem
-            grocery={this.state.groceries[index]}
-          />
-      );
+        <GroceryListItem
+          grocery={this.state.groceries[index]}/>
+      )
     }
 
     // Here are components for task #2.
-    newProductInput = <input className='new-item' type="text" onChange={this.inputChanged}/>;
+    const newProductInput = <input className='new-item' type='text' onChange={this.inputChanged}/>
     // Something is missing here... Will anything happen if you click this button now?
-    newProductAddButton = <button className='add-product'>Add new Product</button>;
+    const newProductAddButton = <button className='add-product'>Add new Product</button>
 
     return (
       <div>
@@ -70,18 +66,15 @@ class GroceryList extends React.Component {
           {groceriesComponents}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-class GroceryListItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (<li>{this.props.grocery.name}</li>);
-  }
+const GroceryListItem = (props) => {
+  return <li>{props.grocery.name}</li>
+}
+GroceryListItem.propTypes = {
+  grocery: PropTypes.object.isRequired
 }
 
-export default GroceryList;
+export default GroceryList

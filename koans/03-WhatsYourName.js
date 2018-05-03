@@ -59,11 +59,11 @@ class WhatsYourName extends React.Component {
   constructor(props) {
     // Properties object is called `props`. You can access it with `this.props`.
     // We won't use it in this exercise.
-    super(props);
-    this.state = { name: "" };
+    super(props)
+    this.state = {name: ''}
 
     // Warning! If we don't bind this method - we would not be able to update state.
-    this.onNameChange = this.onNameChange.bind(this);
+    this.onNameChange = this.onNameChange.bind(this)
   }
 
   // `event` is the only argument passed to that method. It will be an event
@@ -76,16 +76,16 @@ class WhatsYourName extends React.Component {
   //       entered to the input there.
   onNameChange(event) {
     // Huh... There's something wrong here...
-    this.setState({bad_attribute: "ChangeME!"});
+    this.setState({bad_attribute: 'ChangeME!'})
   }
 
   render() {
     return (
       <div>
         <p>Hello {this.state.name}</p>
-        <input type="text" name="name" onChange={this.onNameChange} />
+        <input type='text' name='name' onChange={this.onNameChange} />
       </div>
-    );
+    )
   }
 }
 
@@ -100,4 +100,4 @@ class WhatsYourName extends React.Component {
 //         inputs on page. Not doing so may cause you to waste a long time
 //         debugging your program.
 
-export default WhatsYourName;
+export default WhatsYourName

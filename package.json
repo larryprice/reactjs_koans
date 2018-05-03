@@ -10,9 +10,90 @@
     "compile": "babel exercises -d src",
     "setup": "npm install && ncp koans/ exercises/",
     "start": "nodemon --watch exercises --exec babel-node -- server.js",
-    "test": "npm run compile && mocha -b --compilers js:babel/register --require test/helpers.js test/**/*.js || echo",
+    "test": "jest",
     "watch": "npm-watch",
-    "babel": "babel-node --help"
+    "babel": "babel-node --help",
+    "lint": "eslint --color --cache --fix ."
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "test/",
+    "src/",
+    "exercises/"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "standard",
+      "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "react/display-name": [
+        "off"
+      ],
+      "react/no-access-state-in-setstate": [
+        "error"
+      ],
+      "react/no-unused-prop-types": [
+        "error"
+      ],
+      "react/default-props-match-prop-types": [
+        "error"
+      ],
+      "react/no-deprecated": [
+        "error"
+      ],
+      "react/jsx-closing-bracket-location": [
+        "error",
+        {
+          "nonEmpty": "after-props",
+          "selfClosing": "after-props"
+        }
+      ],
+      "react/jsx-closing-tag-location": [
+        "error"
+      ],
+      "react/boolean-prop-naming": [
+        "error",
+        {
+          "rule": "^(is|has|require)[A-Z]([A-Za-z0-9]?)+"
+        }
+      ],
+      "no-console": [
+        "off"
+      ],
+      "jsx-quotes": [
+        "error",
+        "prefer-single"
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 120,
+          "tabWidth": 2
+        }
+      ],
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ],
+      "no-var": [
+        "error"
+      ],
+      "prefer-const": [
+        "error"
+      ],
+      "curly": [
+        "error",
+        "multi-line",
+        "consistent"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "never"
+      ]
+    }
   },
   "repository": {
     "type": "git",
@@ -33,12 +114,22 @@
     "@babel/preset-react": "^7.0.0-beta.46",
     "@babel/preset-stage-1": "^7.0.0-beta.46",
     "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.1.0",
     "express": "^4.16.3",
+    "jest": "^22.4.3",
     "lodash": "^4.17.10",
     "mocha": "^5.1.1",
     "ncp": "^2.0.0",
     "nodemon": "^1.17.3",
+    "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "sinon": "^4.5.0",

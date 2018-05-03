@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Task: Ok, now the last exercise. You have to implement toggling
 //       completeness of the each grocery list's item. Make each item reactive.
@@ -37,37 +38,37 @@ import React from 'react'
 
 class GroceryList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       groceries: [
         {
-          name: "Apples",
+          name: 'Apples',
           completed: false
         }
       ],
-      newGroceryName: ""
-    };
+      newGroceryName: ''
+    }
 
-    this.addGroceryItem = this.addGroceryItem.bind(this);
-    this.clearList = this.clearList.bind(this);
-    this.inputChanged = this.inputChanged.bind(this);
+    this.addGroceryItem = this.addGroceryItem.bind(this)
+    this.clearList = this.clearList.bind(this)
+    this.inputChanged = this.inputChanged.bind(this)
   }
 
   inputChanged(event) {
-    this.setState({ newGroceryName: event.target.value });
+    this.setState({newGroceryName: event.target.value})
   }
 
   addGroceryItem() {
-    if(this.state.newGroceryName) {
-      let newGroceryItem = { name: this.state.newGroceryName };
-      this.setState({
-        groceries: this.state.groceries.concat([newGroceryItem])
-      });
+    if (this.state.newGroceryName) {
+      const newGroceryItem = {name: this.state.newGroceryName}
+      this.setState((prevState) => {
+        return {groceries: prevState.groceries.concat([newGroceryItem])}
+      })
     }
   }
 
   clearList(event) {
-    this.setState({groceries: []});
+    this.setState({groceries: []})
   }
 
   // Fill the definition of the following method to allow completing each item
@@ -77,22 +78,18 @@ class GroceryList extends React.Component {
   }
 
   render() {
-    let groceriesComponents = [],
-        newProductInput,
-        newProductAddButton,
-        clearListButton;
-    for(var index = 0; index < this.state.groceries.length; index++) {
+    const groceriesComponents = []
+    for (let index = 0; index < this.state.groceries.length; ++index) {
       groceriesComponents.push(
-          <GroceryListItem
-            grocery={this.state.groceries[index]}
-            onComplete={this.toggleGroceryCompleteness.bind(this, index)}
-          />
-      );
+        <GroceryListItem
+          grocery={this.state.groceries[index]}
+          onComplete={this.toggleGroceryCompleteness.bind(this, index)}/>
+      )
     }
 
-    newProductInput = <input className='new-item' type="text" onChange={this.inputChanged}/>;
-    newProductAddButton = <button className='add-product' onClick={this.addGroceryItem}>Add new Product</button>;
-    clearListButton = <button className='clear-list' onClick={this.clearList}>Clear the List</button>;
+    const newProductInput = <input className='new-item' type='text' onChange={this.inputChanged}/>
+    const newProductAddButton = <button className='add-product' onClick={this.addGroceryItem}>Add new Product</button>
+    const clearListButton = <button className='clear-list' onClick={this.clearList}>Clear the List</button>
 
     return (
       <div>
@@ -103,23 +100,21 @@ class GroceryList extends React.Component {
         {newProductAddButton}
         {clearListButton}
       </div>
-    );
+    )
   }
 }
 
-class GroceryListItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    let completed = this.props.grocery.completed ? "completed" : '';
-    return (
-      <li className={completed} onClick={this.props.onComplete}>
-        {this.props.grocery.name}
-      </li>
-    );
-  }
+const GroceryListItem = (props) => {
+  const completed = props.grocery.completed ? 'completed' : ''
+  return (
+    <li className={completed} onClick={props.onComplete}>
+      {props.grocery.name}
+    </li>
+  )
+}
+GroceryListItem.propTypes = {
+  grocery: PropTypes.object.isRequired,
+  onComplete: PropTypes.function.isRequired
 }
 
-export default GroceryList;
+export default GroceryList

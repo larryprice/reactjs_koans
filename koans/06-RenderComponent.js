@@ -1,4 +1,4 @@
-var React = require('react');
+const React = require('react')
 
 // Congratulations for completing your first React challenge!
 // You have already learned how to create React's components and how they affect
@@ -8,7 +8,7 @@ var React = require('react');
 //          into the DOM.
 class Name extends React.Component {
   render() {
-    return (<p id="hello">Bazinga!</p>);
+    return (<p id='hello'>Bazinga!</p>)
   }
 }
 
@@ -31,4 +31,4 @@ function renderNameComponent(domNode) {
 //
 //       `let element = React.createElement(Name);`
 
-export default renderNameComponent;
+export default renderNameComponent

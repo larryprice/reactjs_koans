@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 // Every React component exposes special methods that allow you to plug in logic
 // when certain events occur during the component's life. They are called
@@ -46,8 +46,8 @@ import React from 'react';
 // http://facebook.github.io/react/docs/component-specs.html
 class LifecycleMethodsComponent extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { name: "Bob" };
+    super(props)
+    this.state = {name: 'Bob'}
   }
 
   // This code will be called when the component finishes mounting
@@ -80,8 +80,8 @@ class LifecycleMethodsComponent extends React.Component {
   }
 
   render() {
-    return (<p>Whatever, {this.state.name}!</p>);
+    return (<p>Whatever, {this.state.name}!</p>)
   }
 }
 
-export default LifecycleMethodsComponent;
+export default LifecycleMethodsComponent
