@@ -3,23 +3,16 @@
   "version": "1.0.0",
   "description": "React.js Koans",
   "main": "index.js",
-  "watch": {
-    "test": "{exercises,test}/*.{js,jsx}"
-  },
   "scripts": {
     "compile": "babel exercises -d src",
     "setup": "npm install && ncp koans/ exercises/",
     "start": "nodemon --watch exercises --exec babel-node -- server.js",
     "test": "jest",
-    "watch": "npm-watch",
-    "babel": "babel-node --help",
+    "watch": "jest --watchAll --watchPathIgnorePatterns=node_modules",
     "lint": "eslint --color --cache --fix ."
   },
   "eslintIgnore": [
-    "node_modules/",
-    "__tests__/",
-    "src/",
-    "exercises/"
+    "node_modules/"
   ],
   "eslintConfig": {
     "extends": [

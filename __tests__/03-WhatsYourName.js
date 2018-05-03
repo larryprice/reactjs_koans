@@ -1,4 +1,7 @@
-import WhatsYourName from '../src/03-WhatsYourName.js'
+import React from 'react'
+import {shallow, configure, render} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import WhatsYourName from '../exercises/03-WhatsYourName'
 
 describe("03 - What's Your Name?", () => {
   let component
