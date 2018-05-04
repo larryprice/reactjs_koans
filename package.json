@@ -1,10 +1,9 @@
 {
-  "name": "reactjs_koans",
+  "name": "reactjs-16-koans",
   "version": "1.0.0",
   "description": "React.js Koans",
   "main": "index.js",
   "scripts": {
-    "compile": "babel exercises -d src",
     "setup": "npm install && ncp koans/ exercises/",
     "start": "nodemon --watch exercises --exec babel-node -- server.js",
     "test": "jest --bail",
@@ -90,14 +89,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arkency/reactjs_koans.git"
+    "url": "https://github.com/larryprice/reactjs_koans.git"
   },
-  "author": "Arkency",
+  "author": "Larry Price",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/arkency/reactjs_koans/issues"
+    "url": "https://github.com/larryprice/reactjs_koans/issues"
   },
-  "homepage": "https://github.com/arkency/reactjs_koans",
+  "homepage": "https://github.com/larryprice/reactjs_koans",
   "dependencies": {
     "@babel/cli": "^7.0.0-beta.46",
     "@babel/core": "^7.0.0-beta.46",
@@ -121,7 +120,6 @@
     "express": "^4.16.3",
     "jest": "^22.4.3",
     "lodash": "^4.17.10",
-    "mocha": "^5.1.1",
     "ncp": "^2.0.0",
     "nodemon": "^1.17.3",
     "prop-types": "^15.6.1",
