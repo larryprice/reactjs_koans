@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "npm install && ncp koans/ exercises/",
     "start": "nodemon --watch exercises --exec babel-node -- server.js",
-    "test": "ls __tests__ | xargs -n1 sh -c 'jest $0 || exit 255'",
+    "test": "ls __tests__/*.test.js | xargs -n1 sh -c 'jest $0 || exit 255'",
     "lint": "eslint --color --cache --fix .",
     "watch": "onchange -i 'exercises/*.js' -- npm test",
     "jest": "jest"
