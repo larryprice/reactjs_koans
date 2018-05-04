@@ -1,6 +1,6 @@
-var React = require("react");
+import React from 'react'
 
-// We will create dynamic list of parties nearby. Let's see how to render
+// We will create a dynamic list of parties nearby. Let's see how to render
 // a list of items.
 //
 // Task #1: Add another party (or parties) to the list.
@@ -11,13 +11,13 @@ class PartiesList extends React.Component {
   // Doesn't this code look familiar to you?
   render() {
     return (
-      <ul className="FILL ME">
+      <ul className='FILL ME'>
         <li>Party at Aperture Laboratories</li>
       </ul>
-    );
+    )
   }
   // Think about it: Why is that `className` attribute not called just `class`?
   // Hint: Some words in JavaScript/JSX are reserved...
 }
 
-export default PartiesList;
+export default PartiesList

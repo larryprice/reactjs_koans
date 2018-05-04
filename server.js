@@ -1,30 +1,19 @@
-var express = require('express');
-var app = express();
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+import path from 'path'
+import express from 'express'
+import webpack from 'webpack'
 
-app.get('/app.js', function (req, res) {
-  res.redirect('//localhost:9090/build/app.js');
-});
+const app = express()
+app.use(express.static(path.join(__dirname, '/build/stylesheets')))
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/build/index.html');
-});
+const config = require('./webpack.config')
+const compiler = webpack(config)
+app.use(require('webpack-dev-middleware')(compiler, {hot: true, publicPath: config.output.publicPath, noInfo: true}))
+app.use(require('webpack-hot-middleware')(compiler))
 
-app.use(express.static(__dirname + '/build/stylesheets'));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/build/index.html'))
+})
 
-new WebpackDevServer(webpack(config), {
-    publicPath: config.output.publicPath,
-    hot: true,
-    noInfo: true,
-    historyApiFallback: true
-  }).listen(9090, 'localhost', function (err, result) {
-      if (err) {
-        console.log(err);
-      }
-    });
-
-var server = app.listen(8080, function () {
-  console.log('Listening at http://localhost:%s', server.address().port);
-});
+const server = app.listen(3000, () => {
+  console.log('Listening at http://localhost:%s', server.address().port)
+})
