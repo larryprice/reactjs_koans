@@ -1,6 +1,6 @@
 import React from 'react'
 
-// We will create dynamic list of parties nearby. Let's see how to render
+// We will create a dynamic list of parties nearby. Let's see how to render
 // a list of items.
 //
 // Task #1: Add another party (or parties) to the list.

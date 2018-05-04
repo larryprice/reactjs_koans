@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Task: Ok, now the last exercise. You have to implement toggling
-//       completeness of the each grocery list's item. Make each item reactive.
+//       completeness of each grocery. Make each item reactive.
 //
 //       This is why we prepared the declaration of the `toggleGroceryCompleteness`
 //       method in the `GroceryList` component.
@@ -24,7 +24,7 @@ import PropTypes from 'prop-types'
 //                   (like `addGroceryItem`) as an attribute in the `render` method.
 //
 //             Warning: This task doesn't have its own tests, but current ones
-//                      should be enough to cover it. The behaviour of whole
+//                      should be enough to cover it. The behaviour of the whole
 //                      app should not change.
 //
 // Extra Task: You can try to disable submit button for `newGrocery` if
@@ -34,7 +34,7 @@ import PropTypes from 'prop-types'
 //             Hint: There are no tests for this extra task. You need to do them
 //                   yourself. You can perform manual-testing (meh.)
 //                   Or try to create your own tests.
-//                   Check out `test/05-Challange-GroceryList.js` for tests to this part.
+//                   Check out `__tests__/05-04-Challange-GroceryList.js` for tests to this part.
 
 class GroceryList extends React.Component {
   constructor(props) {
@@ -71,7 +71,7 @@ class GroceryList extends React.Component {
     this.setState({groceries: []})
   }
 
-  // Fill the definition of the following method to allow completing each item
+  // Complete the following method to allow completing each item
   // Hint 1: Pay attention to the element's index on the list.
   toggleGroceryCompleteness(groceryIndex) {
     // Put your code here

@@ -2,11 +2,11 @@ import React from 'react'
 
 // Let's get to the most important feature of React.js - reactive state.
 //
-// Each React component contains 2 important hashes:
-// * Properties - we pass these values when we create a component. They don't
-//                change during the component's lifecycle.
-// * State      - these values can change over entire life of the component.
-//                When you change some value in `state` object, React will
+// Each React component contains 2 important disctionaries:
+// * Properties - we pass these values when we create a component. These attributes
+//                are readonly and cannot be modified by the component.
+// * State      - these values can change over the entire life of the component.
+//                When you change some value in the `state` object, React will
 //                re-calculate the `render` method and update the HTML to match
 //                the new state (in this case, updating the class).
 //
@@ -22,7 +22,7 @@ import React from 'react'
 //
 // You have two tasks to complete in this exercise:
 // Task #1: Someone left broken code in the `onNameChange` method. It is always triggered
-//          after changing the value of `name` input. This method takes
+//          after changing the value of `name` input. This method takes an
 //          event as its only argument. You need to retrieve the input value from
 //          that object and update the `name` field in the `state` object.
 // Warning: Do not try to change the `render` structure.
@@ -45,24 +45,24 @@ import React from 'react'
 //            )
 //          ```
 //
-// Further reading on task #2: https://facebook.github.io/react/tips/if-else-in-JSX.html
+// Further reading on task #2: https://reactjs.org/docs/conditional-rendering.html
 
 class WhatsYourName extends React.Component {
-  // By default `this.state` is `null`. In `render` we are referring to
+  // By default, `this.state` is `null`. In `render` we are referring to
   // a specific element from the `state` object - `this.state.name`.
-  // If we don't set an initial state, we will get an error. It's impossible to fetch
-  // an object key from `null`.
+  // If we don't set an initial state, we will get an error.
   //
   // Think about it: you can set name from a cookie on component initialization!
   //                 What else could you do here?
 
   constructor(props) {
     // Properties object is called `props`. You can access it with `this.props`.
-    // We won't use it in this exercise.
+    // We won't use these in this exercise, but we still need to pass them
+    // to the parent constructor.
     super(props)
     this.state = {name: ''}
 
-    // Warning! If we don't bind this method - we would not be able to update state.
+    // Warning! If we don't bind this method, we cannot update state.
     this.onNameChange = this.onNameChange.bind(this)
   }
 
@@ -72,10 +72,9 @@ class WhatsYourName extends React.Component {
   // You need to correct the call of `setState` method. Just try to set
   // the `name` field to the value passed in event.
   //
-  // Hint: use `console.log` to check `event.target`. You will find text
-  //       entered to the input there.
+  // Hint: use `console.log` to check the attributes of `event.target`
   onNameChange(event) {
-    // Huh... There's something wrong here...
+    // Update this to properly set the state
     this.setState({bad_attribute: 'ChangeME!'})
   }
 
@@ -91,10 +90,9 @@ class WhatsYourName extends React.Component {
 
 // Notice some details here:
 //   1. `onChange` attribute isn't placed between `" "`, but `{ }` - we want to
-//      reference function, not string.
-//   2. You must be very careful on methods binding. You can do it in the constructor.
-//   3. `state` object is `null` by default! If you want to display initial
-//       value from state object, you should initialize state object.
+//      reference a function handler, not a string.
+//   2. You must bind methods to access `this` correctly, as we did in the constructor
+//   3. If you want to display initial value from state object, you should initialize state object.
 
 // ProTip: Always specify input's `name` attribute: React uses it to identify
 //         inputs on page. Not doing so may cause you to waste a long time

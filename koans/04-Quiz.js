@@ -1,4 +1,4 @@
-// Try to answer those questions without peeking into tests.
+// Try to answer those questions without looking at tests.
 
 const Answers = {
   // Question #1: What is the name of the class that we extend to create components class?
@@ -12,7 +12,7 @@ const Answers = {
   // Question #3: What's the name of the method that must be defined in every component?
   answer3: 'someMethod',
 
-  // Question #4: If I want to set `div` component's HTML class, what attribute
+  // Question #4: If I want to set a `div` component's HTML class, what attribute
   //              should I declare in JSX?
   // Tip: See exercise #2.
   answer4: 'someName',

@@ -1,10 +1,9 @@
 import React from 'react'
 
-// This exercise is a bit bigger than the previous ones.
-// We will make a reactive grocery list.
+// This exercise is a bit bigger than the previous ones. We will make a reactive grocery list.
 //
-// Task: Fill the `return` of `GroceryList` render method. It should return
-//       a list of `GroceryListItem`. You need to display the groceries names
+// Task: Fill out the `return` of the `GroceryList` render method. It should return
+//       a list of `GroceryListItem`. You need to display the grocery names
 //       using `props` in `GroceryListItem`. We already prepared the variable
 //       `groceriesComponents` inside `render` method containing a list of these items for you.
 
@@ -31,7 +30,7 @@ class GroceryList extends React.Component {
       )
     }
 
-    // Hint: Don't forget about putting items into `ul`
+    // Hint: Don't forget to render list items within a parent `ul`
     return (
       <div>
         {/* Put your code here. */}
@@ -40,8 +39,7 @@ class GroceryList extends React.Component {
   }
 }
 
-// Render grocery name from component's properties.
-// If you have a problem, check `props` in the console.
+// Render grocery name from properties. If you have a problem, check `props` in the console.
 const GroceryListItem = (props) => {
   return (
     <li>

@@ -1,11 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// Task: User needs to be able to clear whole grocery list in one click.
-//       Render a proper button under your list and implement the `clearList` method.
-//       This method should clear the `groceries` array placed in your state.
-//       This is similar to the previous task so I don't want to say any more.
-//       Have fun.
+// Task: User needs to be able to clear the whole grocery list in one click.
+//       Render a button under your list and implement the `clearList` method.
+//       This method should clear the `groceries` array from state.
 //
 //       Caution: Remember that you should change state only using `setState`
 //                method. The only exception of that rule is state definition
@@ -43,7 +41,7 @@ class GroceryList extends React.Component {
   }
 
   // Fill the definition of the following method to allow clearing the list
-  // Hint: You can just simply set the groceries to an empty array.
+  // Hint: You can simply set the groceries to an empty array.
   clearList() {
     // Put your code here
   }

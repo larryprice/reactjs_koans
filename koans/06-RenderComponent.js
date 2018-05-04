@@ -1,6 +1,5 @@
 import React from 'react'
 
-// Congratulations for completing your first React challenge!
 // You have already learned how to create React's components and how they affect
 // each other. In this exercise you will learn how to render components on the web page.
 //
@@ -12,7 +11,7 @@ class Name extends React.Component {
   }
 }
 
-// See you got a domNode passed as a `domNode` argument.
+// You receive a DOM node passed in as a `domNode` argument.
 export default function renderNameComponent(domNode) {
   // Put your code here
 }
