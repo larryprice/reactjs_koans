@@ -1,15 +1,16 @@
-import renderNameComponent from '../src/06-RenderComponent.js'
+import renderNameComponent from '../exercises/06-RenderComponent'
 
 describe('06 - RenderComponent', () => {
-  beforeEach(() => {
-    renderNameComponent(document.body)
-  })
-
   describe('Task #1 - render Name component', () => {
     it('There should be a rendered React component', () => {
+      const container = document.createElement('div')
+      document.body.appendChild(container)
+
+      renderNameComponent(container)
+
       const element = document.getElementById('hello')
-      assert.notEqual(element, null, 'There should be a paragraph with id `hello` rendered on site.')
-      assert.equal(element.innerHTML, 'Bazinga!', 'Rendered paragraph should contain `Bazinga!`')
+      expect(element).toBeTruthy()
+      expect(element.innerHTML).toBe('Ahoy!')
     })
   })
 })
