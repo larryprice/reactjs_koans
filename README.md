@@ -71,9 +71,11 @@ It is recommended that you run a web server and see your changes live in your we
 
 This branch is a work in progress. Here are some TODO items:
 
-[x] Update the packages
-[x] Web server working
-[x] Update tests
-[] Modify tests to show clearer error messages
-[] Add a koan for `getDerivedStateFromProps`
-[x] Update README
+- [x] Update the packages
+- [x] Web server working
+- [x] Update tests
+- [ ] Modify tests to show clearer error messages
+- [ ] Modify tests to fail earlier
+- [ ] Add a koan for `getDerivedStateFromProps`
+- [ ] Clean up comments in koans
+- [x] Update README
