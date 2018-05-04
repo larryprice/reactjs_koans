@@ -6,9 +6,11 @@
   "scripts": {
     "setup": "npm install && ncp koans/ exercises/",
     "start": "nodemon --watch exercises --exec babel-node -- server.js",
-    "test": "jest --bail",
-    "watch": "jest --bail --watchAll --watchPathIgnorePatterns=node_modules",
-    "lint": "eslint --color --cache --fix ."
+    "test": "jest 01 && jest 02 && jest 03 && jest 04 && jest 05 && jest 06 && jest 07",
+    "lint": "eslint --color --cache --fix .",
+    "jest": "jest",
+    "watch": "onchange -i 'exercises/*.js' -- npm test",
+    "onchange": "onchange -i 'exercises/*.js' -- npm test"
   },
   "eslintIgnore": [
     "node_modules/"
