@@ -7,8 +7,8 @@
     "compile": "babel exercises -d src",
     "setup": "npm install && ncp koans/ exercises/",
     "start": "nodemon --watch exercises --exec babel-node -- server.js",
-    "test": "jest",
-    "watch": "jest --watchAll --watchPathIgnorePatterns=node_modules",
+    "test": "jest --bail",
+    "watch": "jest --bail --watchAll --watchPathIgnorePatterns=node_modules",
     "lint": "eslint --color --cache --fix ."
   },
   "eslintIgnore": [

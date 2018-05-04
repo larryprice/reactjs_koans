@@ -1,31 +1,37 @@
-import Answers from '../src/04-Quiz.js'
+import Answers from '../exercises/04-Quiz'
 
 describe('04 - Quiz', () => {
   it('Question #1', () => {
-    assert.equal(Answers.answer1 === 'React.Component', true, 'Check the line that contains `extends` word in each exercise.')
+    expect(Answers.answer1).toBe('React.Component')
   })
 
   it('Question #2', () => {
-    assert.equal(Answers.answer2, true, 'JSX is not na HTML (so what is it?)')
+    // JSX is not na HTML (so what is it?)
+    expect(Answers.answer2).toBeTruthy()
   })
 
   it('Question #3', () => {
-    assert.equal(Answers.answer3 === 'render', true, 'In every component we created, there was one method. It contained JSX code.')
+    // 'In every component we created, there was one method. It contained JSX code.'
+    expect(Answers.answer3).toBe('render')
   })
 
   it('Question #4', () => {
-    assert.equal(Answers.answer4 === 'className', true, '`class` is a reserved word in JavaScript. See JSX code in exercise #2.')
+    // '`class` is a reserved word in JavaScript. See JSX code in exercise #2.'
+    expect(Answers.answer4).toBe('className')
   })
 
   it('Question #5', () => {
-    assert.equal(Answers.answer5, false, 'See the comments about properties in exercise #3')
+    // 'See the comments about properties in exercise #3'
+    expect(Answers.answer5).not.toBeTruthy()
   })
 
   it('Question #6', () => {
-    assert.equal(Answers.answer6 === 'setState', true, 'See the `onNameChange` method from exercise #3')
+    // 'See the `onNameChange` method from exercise #3'
+    expect(Answers.answer6).toBe('setState')
   })
 
   it('Question #7', () => {
-    assert.equal(Answers.answer7, true, "I'll make it easier for you: yes you have. Why? See exercise #3! It's very important.")
+    // 'I\'ll make it easier for you: yes you have. Why? See exercise #3! It\'s very important.'
+    expect(Answers.answer7).toBeTruthy()
   })
 })
