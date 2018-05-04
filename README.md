@@ -76,6 +76,6 @@ This branch is a work in progress. Here are some TODO items:
 - [x] Update tests
 - [ ] Modify tests to show clearer error messages
 - [ ] Modify tests to fail earlier
-- [ ] Add a koan for `getDerivedStateFromProps`
+- [x] Add a koan for `getDerivedStateFromProps`
 - [ ] Clean up comments in koans
 - [x] Update README

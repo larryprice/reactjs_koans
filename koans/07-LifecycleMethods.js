@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Every React component exposes special methods that allow you to plug in logic
 // when certain events occur during the component's life. They are called
@@ -23,31 +24,32 @@ import React from 'react'
 //                          React.unmountComponentAtNode method. A component can
 //                          be also unmounted during re-rendering of the parent component.
 //
+// * getDerivedStateFromProps - this method fires after the component is instantiated and
+//                              whenever new props are received.
+//
 // Tasks for this exercise are in comments inside the component class code.
 //
 // In this exercise lifecycle methods will be used to provide convenient debug
 // messages in developer's console.
-// There are more lifecycle methods available.
-// Those three presented are commonly used.
 //
-// Extra task: Learn about componentWillUpdate. What's the difference between
-//             this and the componentDidUpdate method? Think about the possible
-//             use cases of this lifecycle method.
-// Extra task: Learn about componentWillMount. How can it be useful?
-//             (Hint: Think about server-side rendering of React components)
-// Extra task: Learn about componentWillReceiveProps. How it can be used?
-//             Is it fired when you render a component for the first time?
-// Extra task: There is a method which directly modifies behavior of React
-//             itself - it's called shouldComponentUpdate.
-//             How can you use it to optimise rendering cycle of your
-//             React components? Learn about PureRenderMixin.
+// There is another method which directly modifies behavior of React
+// itself - it's called shouldComponentUpdate.
+// How can you use it to optimise rendering cycle of your
+// React components? Learn about PureRenderMixin.
 //
 // All lifecycle methods are described here:
-// http://facebook.github.io/react/docs/component-specs.html
+// https://reactjs.org/docs/react-component.html
 class LifecycleMethodsComponent extends React.Component {
+  static propTypes = {
+    name: PropTypes.string
+  }
+  static defaultProps = {
+    name: 'Bob'
+  }
+
   constructor(props) {
     super(props)
-    this.state = {name: 'Bob'}
+    this.state = {name: props.name}
   }
 
   // This code will be called when the component finishes mounting
@@ -77,6 +79,12 @@ class LifecycleMethodsComponent extends React.Component {
     //         you are listening for events. Your event listeners use setState
     //         directly. What will happen if you unmount the component?
     //         How can this lifecycle method help you to avoid such problems?
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    // Task 4: Display a message "Updating 'oldName' to 'newName'." in
+    //         developer's console when the props do not match the current state.
+    //         Use `console.log` function for it.
   }
 
   render() {
