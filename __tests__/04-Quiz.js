@@ -6,7 +6,7 @@ describe('04 - Quiz', () => {
   })
 
   it('Question #2', () => {
-    // JSX is not na HTML (so what is it?)
+    // JSX is not HTML (so what is it?)
     expect(Answers.answer2).toBeTruthy()
   })
 
