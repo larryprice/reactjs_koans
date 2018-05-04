@@ -66,17 +66,3 @@ It is recommended that you run a web server and see your changes live in your we
 1. Edit the code found in the `exercises` directory, starting with `01-HelloWorld` and moving on sequentially
 1. Try to not peek at the test files! They contain spoilers
 1. To run the tests, use `npm run test`. Alternatively, you can automatically run tests when your code changes using `npm run watch`
-
-## TODO ##
-
-This branch is a work in progress. Here are some TODO items:
-
-- [x] Update the packages
-- [x] Web server working
-- [x] Update tests
-- [x] Modify tests to show clearer error messages
-- [x] Modify tests to fail earlier
-- [x] Make tests run in order
-- [x] Add a koan for `getDerivedStateFromProps`
-- [x] Clean up comments in koans
-- [x] Update README
