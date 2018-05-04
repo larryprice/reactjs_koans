@@ -74,7 +74,7 @@ This branch is a work in progress. Here are some TODO items:
 - [x] Update the packages
 - [x] Web server working
 - [x] Update tests
-- [ ] Modify tests to show clearer error messages
+- [x] Modify tests to show clearer error messages
 - [x] Modify tests to fail earlier
 - [x] Make tests run in order
 - [x] Add a koan for `getDerivedStateFromProps`

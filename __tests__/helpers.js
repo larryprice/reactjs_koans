@@ -1,10 +1,4 @@
-import React from 'react'
-import {shallow, configure, render} from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import HelloWorld from '../exercises/01-HelloWorld'
 import diff from 'jest-diff'
-
-configure({adapter: new Adapter()})
 
 expect.extend({
   toBe(actual, expected) {
@@ -16,11 +10,11 @@ expect.extend({
     const message = pass
       ? () => {
         return this.utils.matcherHint('.not.toBe') +
-          '\n\n' + (expected.msg ||
+          '\n\n' + (expected.msg ? `${expected.msg}\n\n` : '') +
           `Expected value to not be (using Object.is):\n` +
           `  ${this.utils.printExpected(expected.value)}\n` +
           `Received:\n` +
-          `  ${this.utils.printReceived(actual)}`)
+          `  ${this.utils.printReceived(actual)}`
       }
       : () => {
         const diffString = diff(expected, actual, {
@@ -28,23 +22,25 @@ expect.extend({
         })
         return (
           this.utils.matcherHint('.toBe') +
-            '\n\n' + (expected.msg ||
+            '\n\n' + (expected.msg ? `${expected.msg}\n\n` : '') +
             `Expected value to be (using Object.is):\n` +
             `  ${this.utils.printExpected(expected.value)}\n` +
             `Received:\n` +
             `  ${this.utils.printReceived(actual)}` +
-            (diffString ? `\n\nDifference:\n\n${diffString}` : ''))
+            (diffString ? `\n\nDifference:\n\n${diffString}` : '')
         )
       }
 
     return {actual, message, pass}
+  },
+  toBeTruthy(actual, msg) {
+    const pass = !!actual
+    const message = () =>
+      this.utils.matcherHint('.toBeTruthy', 'received', '', {
+        isNot: this.isNot
+      }) +
+    '\n\n' + (msg ? `${msg}\n\n` : '') +
+    `Received: ${this.utils.printReceived(actual)}`
+    return {message, pass}
   }
-})
-
-describe('01 - HelloWorld', () => {
-  it('should complete all tasks', () => {
-    expect(shallow(<HelloWorld />).find('div').length).toBe({value: 0, msg: 'No divs'})
-    expect(shallow(<HelloWorld />).find('span').length).toBe(1)
-    expect(render(<HelloWorld />).text()).toEqual('Hello World')
-  })
 })

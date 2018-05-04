@@ -3,11 +3,12 @@ import {shallow, configure} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import sinon from 'sinon'
 import LifecycleMethodsComponent from '../exercises/07-LifecycleMethods'
+import './helpers'
 
 configure({adapter: new Adapter()})
 
 describe('07 - Lifecycle methods', () => {
-  describe('Task #2 - emit a console log when the component updates', () => {
+  describe('Task #3 - emit a console log when the component unmounts', () => {
     beforeEach(() => {
       sinon.spy(console, 'log')
     })
@@ -15,11 +16,11 @@ describe('07 - Lifecycle methods', () => {
       console.log.restore()
     })
 
-    it('should emit \'Updated!\' in developer console', () => {
-      const wrapper = shallow(<LifecycleMethodsComponent />)
-      wrapper.setState({name: 'Victor'})
+    it('should emit \'Goodbye, cruel world! :(\' in developer console', () => {
+      shallow(<LifecycleMethodsComponent />).unmount()
 
-      expect(console.log.calledWith('Updated!')).toBe(true)
+      expect(console.log.calledWith('Goodbye, cruel world! :(')).toBe(
+        {value: true, msg: 'Goodbye, cruel world! :(" to be logged to console'})
     })
   })
 })
